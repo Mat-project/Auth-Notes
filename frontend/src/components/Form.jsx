@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ACCESS_TOKENS, REFRESH_TOKENS } from "../constants";
 import "../styles/Form.css"
 import Loadingindicator from "./Lodingindicator";
@@ -50,10 +50,18 @@ function Form({ route, method }) {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
             />
-             {loading && <Loadingindicator />} 
-       <button className="form-button" type="submit">
+            {loading && <Loadingindicator />} 
+            <button className="form-button" type="submit">
                 {name}
             </button>
+            
+            <div className="form-redirect">
+                {method === "login" ? (
+                    <p>Don't have an account? <Link to="/register" className="redirect-link">Register here</Link></p>
+                ) : (
+                    <p>Already have an account? <Link to="/login" className="redirect-link">Login here</Link></p>
+                )}
+            </div>
         </form>
     );
 }

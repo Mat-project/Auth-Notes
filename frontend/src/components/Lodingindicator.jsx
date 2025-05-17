@@ -1,10 +1,11 @@
 import "../styles/Loadingindicator.css";
 
-const Lodingindicator=()=>{
-    return 
-    <div className="loading-container">
-        <div className="loader"></div>
+const Lodingindicator = () => {
+  return (
+    <div className="loader-container">
+      <div className="loader"></div>
     </div>
-}
+  );
+};
 
-export default Lodingindicator
+export default Lodingindicator;
